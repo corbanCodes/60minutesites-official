@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Start your professional website today with 60 Minute Sites. FREE setup + $50/month. Everything included.">
+  <meta name="robots" content="noindex">
+  <title>Get Started | 60 Minute Sites</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io (4)/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io (4)/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io (4)/favicon-16x16.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .checkout-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 60px 20px;
+    }
+    .checkout-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .checkout-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .checkout-header .logo {
+      margin-bottom: 20px;
+      display: inline-flex;
+    }
+    .checkout-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+    .checkout-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .checkout-summary {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+    .checkout-summary h2 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      color: var(--black);
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .summary-item:last-of-type {
+      border-bottom: none;
+    }
+    .summary-item .label {
+      color: var(--gray);
+    }
+    .summary-item .value {
+      font-weight: 600;
+      color: var(--black);
+    }
+    .summary-item.total {
+      padding-top: 20px;
+      margin-top: 10px;
+      border-top: 2px solid var(--light-gray);
+    }
+    .summary-item.total .label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .summary-item.total .value {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    .checkout-benefits {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+    .checkout-benefits h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--black);
+    }
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+    }
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      color: var(--dark-gray);
+    }
+    .benefit-list li i {
+      color: #22c55e;
+      margin-top: 3px;
+    }
+    .checkout-action {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .checkout-action .btn {
+      width: 100%;
+      padding: 18px 32px;
+      font-size: 1.1rem;
+    }
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    .secure-badge i {
+      color: #22c55e;
+    }
+    .guarantee-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .guarantee-box p {
+      color: #166534;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    .guarantee-box i {
+      color: #22c55e;
+      margin-right: 6px;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--gray);
+    }
+    .back-link:hover {
+      color: var(--primary);
+    }
+    .questions-box {
+      text-align: center;
+      margin-top: 40px;
+      padding: 24px;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+    .questions-box h3 {
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+    .questions-box p {
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .questions-box .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .questions-box .btn {
+      min-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-page">
+    <div class="checkout-container">
+      <div class="checkout-header">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="60 Minute Sites" class="logo-img">
+          <span class="logo-text">
+            <span class="logo-main"><span>60</span>Minute<span>Sites</span></span>
+            <span class="logo-tagline">Professional Websites Fast</span>
+          </span>
+        </a>
+        <h1>You're Almost There!</h1>
+        <p>Get your professional website live in just 60 minutes</p>
+      </div>
+
+      <div class="checkout-grid">
+        <div class="checkout-summary">
+          <h2>Order Summary</h2>
+          <div class="summary-item">
+            <span class="label">Professional Website Setup</span>
+            <span class="value" style="text-decoration: line-through; color: var(--gray);">$100</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Setup Fee</span>
+            <span class="value" style="color: #22c55e;">FREE</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Monthly Hosting & Support</span>
+            <span class="value">$50/mo</span>
+          </div>
+          <div class="summary-item total">
+            <span class="label">Due Today</span>
+            <span class="value">$50.00</span>
+          </div>
+
+          <div class="guarantee-box">
+            <p><i class="fas fa-shield-alt"></i> 100% Satisfaction Guarantee - Cancel anytime, no questions asked</p>
+          </div>
+        </div>
+
+        <div class="checkout-benefits">
+          <h2>What's Included</h2>
+          <ul class="benefit-list">
+            <li><i class="fas fa-check"></i> Choose from 560+ professional templates</li>
+            <li><i class="fas fa-check"></i> 1-hour personalized onboarding call</li>
+            <li><i class="fas fa-check"></i> Full template customization</li>
+            <li><i class="fas fa-check"></i> Your content & images added</li>
+            <li><i class="fas fa-check"></i> Domain connection assistance</li>
+            <li><i class="fas fa-check"></i> Mobile-responsive design</li>
+            <li><i class="fas fa-check"></i> SEO basics configured</li>
+            <li><i class="fas fa-check"></i> Contact forms ready to go</li>
+            <li><i class="fas fa-check"></i> Premium hosting included</li>
+            <li><i class="fas fa-check"></i> SSL certificate (HTTPS)</li>
+            <li><i class="fas fa-check"></i> Monthly maintenance & updates</li>
+            <li><i class="fas fa-check"></i> Email support</li>
+          </ul>
+
+          <div class="checkout-action">
+            <a href="https://buy.stripe.com/6oUdR96wG9ID1MwcuOeAg03" class="btn btn-primary btn-lg" target="_blank">
+              <i class="fas fa-lock"></i> Complete Purchase - $50/mo
+            </a>
+            <div class="secure-badge">
+              <i class="fas fa-shield-alt"></i>
+              <span>Secure checkout powered by Stripe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="questions-box">
+        <h3>Have Questions?</h3>
+        <p>We're happy to walk you through everything before you commit.</p>
+        <div class="btn-group">
+          <a href="https://calendly.com/corban-leadsprinter/new-meeting" class="btn btn-outline" target="_blank">
+            <i class="fas fa-calendar"></i> Book a Free Call
+          </a>
+          <a href="tel:817-403-2179" class="btn btn-outline">
+            <i class="fas fa-phone"></i> Call (817) 403-2179
+          </a>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+    </div>
+  </div>
+</body>
+</html>
