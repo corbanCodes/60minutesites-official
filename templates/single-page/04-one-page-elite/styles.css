@@ -225,3 +225,163 @@ a { color: var(--primary); text-decoration: none; transition: var(--transition);
     .cta-buttons { flex-direction: column; align-items: center; }
     .section-header h2 { font-size: 2rem; }
 }
+
+/* ==============================================
+   READABILITY FIXES - Auto-generated
+   Ensures text is always readable regardless of theme
+   ============================================== */
+
+/* Testimonial Cards - Always dark text on white background */
+.testimonial-card {
+    background: #ffffff !important;
+}
+.testimonial-card .testimonial-text {
+    color: #333333 !important;
+}
+.testimonial-card .testimonial-author strong {
+    color: #1a1a1a !important;
+}
+.testimonial-card .testimonial-author span {
+    color: #666666 !important;
+}
+
+/* FAQ Section - Always readable text */
+.faq-question {
+    color: #1a1a1a !important;
+}
+.faq-question span {
+    color: #1a1a1a !important;
+}
+.faq-answer p {
+    color: #555555 !important;
+}
+
+/* Social Icons - Ensure visibility with contrast background */
+.contact-social a,
+.footer-social a {
+    background: rgba(255,255,255,0.15) !important;
+    color: #ffffff !important;
+}
+.contact-social a:hover,
+.footer-social a:hover {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+}
+
+/* Service cards text readability */
+.service-card {
+    background: #ffffff !important;
+}
+.service-card h3 {
+    color: #1a1a1a !important;
+}
+.service-card p {
+    color: #555555 !important;
+}
+
+/* ==============================================
+   READABILITY FIXES v2 - Auto-generated
+   Ensures text is always readable regardless of theme
+   Uses card backgrounds instead of just color overrides
+   ============================================== */
+
+/* FAQ Section - Add white card backgrounds */
+.faq-grid {
+    background: #ffffff !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+}
+.faq-item {
+    border-bottom: 1px solid #e5e7eb !important;
+}
+.faq-question {
+    color: #1a1a1a !important;
+    background: transparent !important;
+}
+.faq-question span,
+.faq-question i {
+    color: #1a1a1a !important;
+}
+.faq-answer p {
+    color: #444444 !important;
+}
+
+/* Testimonial Cards - Ensure readable */
+.testimonial-card {
+    background: #ffffff !important;
+}
+.testimonial-card .testimonial-text {
+    color: #333333 !important;
+}
+.testimonial-card .testimonial-author strong {
+    color: #1a1a1a !important;
+}
+.testimonial-card .testimonial-author span {
+    color: #666666 !important;
+}
+
+/* Contact Social Icons - Always visible with solid background */
+.contact-social a {
+    background: #f3f4f6 !important;
+    color: #1a1a1a !important;
+    border: 1px solid #e5e7eb !important;
+}
+.contact-social a:hover {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border-color: #1a1a1a !important;
+}
+
+/* Footer Social - Ensure visibility */
+.footer-social a {
+    background: rgba(255,255,255,0.2) !important;
+    color: #ffffff !important;
+}
+.footer-social a:hover {
+    background: rgba(255,255,255,0.4) !important;
+    color: #ffffff !important;
+}
+
+/* Contact Info Cards - Ensure readability */
+.contact-info-card,
+.contact-form-card {
+    background: #ffffff !important;
+}
+.contact-info-card h3,
+.contact-form-card h3 {
+    color: #1a1a1a !important;
+}
+.contact-info-item strong {
+    color: #1a1a1a !important;
+}
+.contact-info-item a,
+.contact-info-item span {
+    color: #555555 !important;
+}
+.contact-info-item i {
+    color: #ffffff !important;
+}
+
+/* Service cards text readability */
+.service-card {
+    background: #ffffff !important;
+}
+.service-card h3 {
+    color: #1a1a1a !important;
+}
+.service-card p {
+    color: #555555 !important;
+}
+
+/* Form labels and inputs */
+.form-group label {
+    color: #1a1a1a !important;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    border-color: #d1d5db !important;
+}
