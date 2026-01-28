@@ -1,0 +1,20 @@
+# 60 Minute Sites - robots.txt
+User-agent: *
+
+# Allow all main pages
+Allow: /
+Allow: /blog/
+Allow: /templates/
+
+# Block checkout/payment pages
+Disallow: /checkout.html
+Disallow: /checkout-information.html
+Disallow: /thank-you-for-your-purchase.html
+
+# Block any admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.claude/
+
+# Sitemap location
+Sitemap: https://60minutesites.com/sitemap.xml

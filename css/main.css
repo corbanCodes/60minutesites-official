@@ -46,6 +46,14 @@
   /* Container */
   --container-max: 1200px;
   --container-narrow: 800px;
+
+  /* Blog-compatible aliases */
+  --text: #1A1A1A;
+  --text-light: #666666;
+  --border: #E5E5E5;
+  --light: #F9F9F9;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
 }
 
 /* Reset & Base */
@@ -318,6 +326,67 @@ p {
   color: var(--primary);
 }
 
+/* Nav Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle i {
+  font-size: 0.7rem;
+  transition: transform var(--transition-fast);
+}
+
+.nav-dropdown.active .nav-dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xs) 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.active .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 0.625rem 1rem;
+  color: var(--black);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.nav-dropdown-item:hover {
+  background: var(--off-white);
+  color: var(--primary);
+}
+
+.nav-dropdown-item.active {
+  color: var(--primary);
+}
+
 .nav-cta {
   margin-left: var(--spacing-sm);
 }
@@ -365,19 +434,8 @@ p {
   border-bottom: 1px solid var(--light-gray);
 }
 
-/* Hide phone number at mid-range first */
+/* Full mobile menu at 1100px */
 @media (max-width: 1100px) {
-  .nav {
-    gap: var(--spacing-sm);
-  }
-
-  .nav-phone {
-    display: none;
-  }
-}
-
-/* Full mobile menu at 960px */
-@media (max-width: 960px) {
   .nav {
     display: none;
   }
@@ -461,6 +519,37 @@ p {
 
 .section-gray {
   background-color: var(--off-white);
+}
+
+/* Custom Sites Banner */
+.custom-sites-banner {
+  background: var(--black);
+  padding: 2rem 0;
+}
+
+.custom-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.custom-banner-text h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-banner-text p {
+  color: var(--light-gray);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .custom-banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .section-header {
@@ -1965,6 +2054,156 @@ body.has-announcement .hero {
   color: #22c55e;
 }
 
+/* Homepage Pricing Grid (Two Cards) */
+.pricing-grid-home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .pricing-grid-home {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+.pricing-card-home {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--light-gray);
+  position: relative;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card-home:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.pricing-card-home.featured {
+  border-color: var(--primary);
+}
+
+.pricing-card-home .pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pricing-header-home {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 20px;
+}
+
+.pricing-header-home .pricing-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.pricing-header-home .pricing-price {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.pricing-header-home .pricing-price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+.pricing-header-home .pricing-detail {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-top: 8px;
+}
+
+.pricing-header-home .pricing-savings {
+  display: inline-block;
+  background: #f0fdf4;
+  color: #166534;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.pricing-features-home {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+.pricing-features-home li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+}
+
+.pricing-features-home li i {
+  color: #22c55e;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.pricing-features-home li.highlight {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.pricing-guarantee-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-md);
+}
+
+.pricing-guarantee-home span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.pricing-guarantee-home i {
+  color: #22c55e;
+}
+
 
 /* =====================================================
    BUTTON IMPROVEMENTS
@@ -2507,7 +2746,14 @@ body.has-announcement .hero {
   }
 
   .why-stats {
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .why-stat {
+    text-align: center;
   }
 }
 
@@ -2563,8 +2809,16 @@ body.has-announcement .hero {
   }
 
   .why-stats {
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .why-stat-num {
+    font-size: 1.5rem;
+  }
+
+  .why-stat-label {
+    font-size: 0.75rem;
   }
 
   /* Tighter spacing on mobile */
