@@ -12,6 +12,7 @@
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   margin-bottom: 1rem;
+  color: var(--white);
 }
 
 .blog-hero p {
@@ -563,6 +564,42 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Primary button in CTA - orange with white text */
+.blog-post-cta .btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.blog-post-cta .btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Secondary button in CTA - orange outline */
+.blog-post-cta .btn-secondary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.blog-post-cta .btn-secondary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Outline white button in CTA */
+.blog-post-cta .btn-outline-white {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.blog-post-cta .btn-outline-white:hover {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* Related Posts */
