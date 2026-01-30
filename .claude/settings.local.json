@@ -10,7 +10,8 @@
       "Bash(ls:*)",
       "Bash(git -C /Users/corbandamukaitis/Desktop/Personal Projects/60minutesites.com/60minutesites-official/60minutesites-official show HEAD:blog/js/articles-data.js)",
       "Bash(grep:*)",
-      "Bash(shuf)"
+      "Bash(shuf)",
+      "Bash(cd /Users/corbandamukaitis/Desktop/Personal\\\\ Projects/60minutesites.com/60minutesites-official/60minutesites-official && git rm --cached:*)"
     ]
   }
 }
