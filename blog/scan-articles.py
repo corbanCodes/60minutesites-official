@@ -53,18 +53,30 @@ def extract_read_time(content):
         return match.group(1)
     return "7"
 
+# Category folders to scan (in addition to *-websites)
+CATEGORY_FOLDERS = [
+    'local-seo', 'comparisons', 'web-design', 'getting-started', 'website-cost',
+    'llm-optimization', 'lead-generation', 'blog-automation', 'custom-development',
+    'ai-business-tools', 'website-strategy', 'local-marketing', 'industry-ai',
+    'technical-seo', 'business-growth', 'qa-local-seo', 'qa-websites', 'qa-ai-business',
+    '60minutesites', 'leadsprinter', 'small-business-ai', 'conversion-optimization',
+    'online-reviews', 'local-directories', 'email-marketing', 'social-media-local',
+    'paid-advertising', 'content-marketing', 'website-features', 'website-security',
+    'mobile-optimization', 'analytics-tracking', 'competitor-analysis', 'branding-identity',
+    'customer-experience', 'seasonal-marketing', 'industry-websites', 'qa-business-operations',
+    'qa-marketing', 'website-mistakes', 'future-trends', 'tools-resources', 'success-stories',
+    'advanced-strategies', '60minutesites-industries', 'leadsprinter-industries', 'website-comparisons'
+]
+
 def get_industry_from_path(filepath):
     """Extract industry/category from file path."""
     parts = filepath.split(os.sep)
     for part in parts:
         if part.endswith('-websites'):
             return part.replace('-websites', '')
-        elif part in ['local-seo', 'comparisons', 'web-design', 'getting-started', 'website-cost']:
+        elif part in CATEGORY_FOLDERS:
             return part
     return 'general'
-
-# Category folders to scan (in addition to *-websites)
-CATEGORY_FOLDERS = ['local-seo', 'comparisons', 'web-design', 'getting-started', 'website-cost']
 
 def scan_articles():
     """Scan all article HTML files and return article data."""

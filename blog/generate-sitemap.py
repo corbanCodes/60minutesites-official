@@ -35,12 +35,31 @@ def generate_sitemap():
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     
+    # Main pages first (high priority)
+    main_pages = [
+        ('/', 1.0, 'weekly'),
+        ('/pricing.html', 0.9, 'monthly'),
+        ('/gallery.html', 0.9, 'weekly'),
+        ('/templates.html', 0.9, 'weekly'),
+        ('/checkout.html', 0.3, 'monthly'),
+        ('/blog/', 0.8, 'daily'),
+    ]
+    
+    for path, priority, freq in main_pages:
+        xml += f'  <url>\n'
+        xml += f'    <loc>{BASE_URL}{path}</loc>\n'
+        xml += f'    <lastmod>{today}</lastmod>\n'
+        xml += f'    <changefreq>{freq}</changefreq>\n'
+        xml += f'    <priority>{priority}</priority>\n'
+        xml += f'  </url>\n'
+    
+    # Blog articles (lower priority)
     for url in sorted(articles):
         xml += f'  <url>\n'
         xml += f'    <loc>{url}</loc>\n'
         xml += f'    <lastmod>{today}</lastmod>\n'
         xml += f'    <changefreq>monthly</changefreq>\n'
-        xml += f'    <priority>0.6</priority>\n'
+        xml += f'    <priority>0.5</priority>\n'
         xml += f'  </url>\n'
     
     xml += '</urlset>'

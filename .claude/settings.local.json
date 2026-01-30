@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(for i in {1..10})",
+      "Bash(do wc -l /Users/corbandamukaitis/Desktop/Personal Projects/60minutesites.com/60minutesites-official/60minutesites-official/blog/ai-llm-batch-$i.csv)",
+      "Bash(done)",
+      "Bash(cd:*)",
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(git -C /Users/corbandamukaitis/Desktop/Personal Projects/60minutesites.com/60minutesites-official/60minutesites-official show HEAD:blog/js/articles-data.js)",
+      "Bash(grep:*)"
     ]
   }
 }

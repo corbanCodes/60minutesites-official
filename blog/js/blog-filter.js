@@ -24,7 +24,9 @@
     'local-seo': 'local-seo',
     'comparisons': 'comparisons',
     'getting-started': 'getting-started',
-    'website-cost': 'website-cost'
+    'website-cost': 'website-cost',
+    'llm-optimization': 'llm-optimization',
+    'lead-generation': 'lead-generation'
   };
 
   const CATEGORY_NAMES = {
@@ -33,7 +35,9 @@
     'local-seo': 'Local SEO',
     'comparisons': 'Comparisons',
     'getting-started': 'Getting Started',
-    'website-cost': 'Website Cost'
+    'website-cost': 'Website Cost',
+    'llm-optimization': 'AI & LLM Optimization',
+    'lead-generation': 'Lead Generation'
   };
 
   // Initialize on DOM ready

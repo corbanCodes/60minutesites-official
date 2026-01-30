@@ -35,6 +35,7 @@ CATEGORIES = [
     {'name': 'Web Design', 'csv': 'blog-articles-web-design.csv', 'folder': 'web-design'},
     {'name': 'Getting Started', 'csv': 'blog-articles-getting-started.csv', 'folder': 'getting-started'},
     {'name': 'Website Cost', 'csv': 'blog-articles-website-cost.csv', 'folder': 'website-cost'},
+    {'name': 'Extra (Voice AI, Software, Leads)', 'csv': 'blog-articles-extra.csv', 'folder': 'local-seo'},
 ]
 
 CATEGORY_DISPLAY = {
