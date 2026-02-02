@@ -1260,23 +1260,6 @@
         stickyCta.classList.remove('visible');
       });
 
-      // FAQ accordion
-      document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-          const faqItem = button.parentElement;
-          const isActive = faqItem.classList.contains('active');
-
-          // Close all others
-          document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
-          });
-
-          // Toggle current
-          if (!isActive) {
-            faqItem.classList.add('active');
-          }
-        });
-      });
     });
   </script>
 </body>

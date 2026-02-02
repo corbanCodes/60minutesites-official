@@ -12,7 +12,11 @@
       "Bash(grep:*)",
       "Bash(shuf)",
       "Bash(cd /Users/corbandamukaitis/Desktop/Personal\\\\ Projects/60minutesites.com/60minutesites-official/60minutesites-official && git rm --cached:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(dig:*)",
+      "Bash(openssl s_client:*)",
+      "Bash(openssl x509:*)"
     ]
   }
 }
