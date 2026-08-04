@@ -16,7 +16,8 @@
       "Bash(curl:*)",
       "Bash(dig:*)",
       "Bash(openssl s_client:*)",
-      "Bash(openssl x509:*)"
+      "Bash(openssl x509:*)",
+      "Bash(du:*)"
     ]
   }
 }
