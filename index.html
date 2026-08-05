@@ -98,6 +98,23 @@
 
   gtag('config', 'AW-649666163');
 </script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3728691617450623');
+fbq('track', 'PageView');
+document.addEventListener('click', function(e) {
+  var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+  if (a) { fbq('track', 'Lead', {content_name: 'phone_call_tap'}); }
+}, true);
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
   <div id="site-header"></div>
@@ -548,7 +565,21 @@
   </section>
 
   <!-- Pricing Preview -->
-  <section class="section section-gray">
+  
+  <!-- Featured Video -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Watch It Happen</span>
+        <h2>A Real Website, Built in Real Time</h2>
+        <p>See exactly what happens on your 60-minute call.</p>
+      </div>
+      <div style="position:relative;max-width:900px;margin:0 auto;padding-top:min(56.25%,506px);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);background:#000;">
+        <iframe src="https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/iframe" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+      </div>
+    </div>
+  </section>
+<section class="section section-gray">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Unbeatable Value</span>
