@@ -574,9 +574,14 @@ src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></
         <h2>A Real Website, Built in Real Time</h2>
         <p>See exactly what happens on your 60-minute call.</p>
       </div>
-      <div style="position:relative;max-width:900px;margin:0 auto;padding-top:min(56.25%,506px);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);background:#000;">
-        <iframe src="https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/iframe" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
-      </div>
+      <div style="max-width:900px;margin:0 auto;"><div class="video-container">
+          <video id="build-video" controls playsinline poster="https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/thumbnails/thumbnail.jpg"></video>
+          <div class="video-overlay" id="build-overlay">
+            <button class="play-btn-large" id="build-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div></div>
     </div>
   </section>
 <section class="section section-gray">
@@ -861,5 +866,23 @@ src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></
       }
     });
   </script>
+<script>
+(function() {
+  var v = document.getElementById('build-video');
+  if (!v) return;
+  var src = 'https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/manifest/video.m3u8';
+  var ov = document.getElementById('build-overlay');
+  var btn = document.getElementById('build-play');
+  if (window.Hls && Hls.isSupported()) {
+    var h = new Hls(); h.loadSource(src); h.attachMedia(v);
+  } else if (v.canPlayType('application/vnd.apple.mpegurl')) {
+    v.src = src;
+  }
+  function start() { v.play(); if (ov) ov.classList.add('hidden'); }
+  if (btn) btn.addEventListener('click', start);
+  if (ov) ov.addEventListener('click', start);
+  v.addEventListener('play', function() { if (ov) ov.classList.add('hidden'); });
+})();
+</script>
 </body>
 </html>

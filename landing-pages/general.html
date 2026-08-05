@@ -645,8 +645,13 @@ src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></
           </ul>
           <a href="tel:1-800-604-5433" class="btn btn-primary"><i class="fas fa-phone"></i> Call 1-800-60-4-LIFE</a>
         </div>
-        <div class="cf-embed">
-          <iframe src="https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/iframe" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
+        <div class="video-container">
+          <video id="build-video" controls playsinline poster="https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/thumbnails/thumbnail.jpg"></video>
+          <div class="video-overlay" id="build-overlay">
+            <button class="play-btn-large" id="build-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -711,21 +716,21 @@ src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></
       <p class="section-subtitle">560+ professional designs across 28 industries. Each one fully customizable to your brand.</p>
       <div class="templates-preview">
         <a href="/gallery.html" class="template-card">
-          <img src="https://picsum.photos/seed/construction-template1-hero/600/400" alt="Construction Website Template">
+          <img src="/assets/images/template-construction.jpg" alt="Construction Website Template">
           <div class="template-card-info">
             <h4>Construction</h4>
             <span>Builder Pro</span>
           </div>
         </a>
         <a href="/gallery.html" class="template-card">
-          <img src="https://picsum.photos/seed/salon-template1-hero/600/400" alt="Salon Website Template">
+          <img src="/assets/images/template-salon.jpg" alt="Salon Website Template">
           <div class="template-card-info">
             <h4>Salon</h4>
             <span>Glamour Cuts</span>
           </div>
         </a>
         <a href="/gallery.html" class="template-card">
-          <img src="https://picsum.photos/seed/plumber-template1-hero/600/400" alt="Plumber Website Template">
+          <img src="/assets/images/template-plumber.jpg" alt="Plumber Website Template">
           <div class="template-card-info">
             <h4>Plumber</h4>
             <span>Flow Masters</span>
@@ -919,5 +924,23 @@ src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></
       });
     });
   </script>
+<script>
+(function() {
+  var v = document.getElementById('build-video');
+  if (!v) return;
+  var src = 'https://customer-394md8sxxno51fu2.cloudflarestream.com/7726ae3874b57841044015b2a69483c4/manifest/video.m3u8';
+  var ov = document.getElementById('build-overlay');
+  var btn = document.getElementById('build-play');
+  if (window.Hls && Hls.isSupported()) {
+    var h = new Hls(); h.loadSource(src); h.attachMedia(v);
+  } else if (v.canPlayType('application/vnd.apple.mpegurl')) {
+    v.src = src;
+  }
+  function start() { v.play(); if (ov) ov.classList.add('hidden'); }
+  if (btn) btn.addEventListener('click', start);
+  if (ov) ov.addEventListener('click', start);
+  v.addEventListener('play', function() { if (ov) ov.classList.add('hidden'); });
+})();
+</script>
 </body>
 </html>
