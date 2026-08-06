@@ -887,5 +887,21 @@ src="https://www.facebook.com/tr?id=3728691617450623&ev=PageView&noscript=1"/></
   v.addEventListener('play', function() { if (ov) ov.classList.add('hidden'); });
 })();
 </script>
+<script>
+(function(){
+  var t0 = Date.now();
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (!f.action || f.action.indexOf('formspree') === -1) return;
+    ['fill_seconds','traffic_source'].forEach(function(n){
+      if (!f.querySelector('[name="'+n+'"]')){
+        var i = document.createElement('input'); i.type='hidden'; i.name=n; f.appendChild(i);
+      }
+    });
+    f.querySelector('[name="fill_seconds"]').value = Math.round((Date.now()-t0)/1000);
+    f.querySelector('[name="traffic_source"]').value = (location.search || 'direct') + ' | ref: ' + (document.referrer || 'none');
+  }, true);
+})();
+</script>
 </body>
 </html>
