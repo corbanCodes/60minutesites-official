@@ -1010,6 +1010,7 @@ p {
 .footer-social {
   display: flex;
   gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
 }
 
 .footer-social a {
