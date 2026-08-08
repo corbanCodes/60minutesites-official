@@ -131,6 +131,20 @@
       gap: 6px;
     }
     .quiz-back:hover { color: var(--black); }
+    .contact-fields .form-group { margin-bottom: 14px; }
+    .contact-error {
+      display: none;
+      color: #C0392B;
+      font-size: 0.9rem;
+      margin: 4px 0 10px;
+    }
+    .contact-error.show { display: block; }
+    .fine-print {
+      color: var(--gray);
+      font-size: 0.8rem;
+      text-align: center;
+      margin: 10px 0 0;
+    }
     #booking { display: none; padding: 0 20px 60px; }
     #booking .section-header { margin-bottom: 8px; }
     #booking .section-header h2 { font-size: 1.6rem; }
@@ -167,6 +181,7 @@
         <div class="dot active" data-dot="1"></div>
         <div class="dot" data-dot="2"></div>
         <div class="dot" data-dot="3"></div>
+        <div class="dot" data-dot="4"></div>
       </div>
 
       <div class="quiz-step active" data-step="1">
@@ -198,6 +213,29 @@
           <button class="quiz-option" data-q="timeline" data-a="Just looking around"><i class="fas fa-binoculars"></i>Just looking around</button>
         </div>
         <button class="quiz-back" data-back="2"><i class="fas fa-arrow-left"></i> Back</button>
+      </div>
+
+      <div class="quiz-step" data-step="4">
+        <h2>Last step — who are we building this for?</h2>
+        <div class="contact-fields">
+          <div class="form-group">
+            <label for="lead-name" class="form-label">Your Name *</label>
+            <input type="text" id="lead-name" class="form-input" placeholder="John Smith" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="lead-phone" class="form-label">Cell Number *</label>
+            <input type="tel" id="lead-phone" class="form-input" placeholder="(555) 123-4567" autocomplete="tel" required>
+          </div>
+          <div class="form-group">
+            <label for="lead-business" class="form-label">Business Name</label>
+            <input type="text" id="lead-business" class="form-input" placeholder="Smith Plumbing" autocomplete="organization">
+          </div>
+          <input type="text" name="_gotcha" id="lead-gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+          <p class="contact-error" id="contact-error">Please add your name and a cell number we can text your confirmation to.</p>
+          <button type="button" class="btn btn-primary btn-lg" id="contact-submit" style="width: 100%;">See Available Times</button>
+          <p class="fine-print">Only used to confirm your booking. No spam, no list, ever.</p>
+        </div>
+        <button class="quiz-back" data-back="3"><i class="fas fa-arrow-left"></i> Back</button>
       </div>
     </div>
 
@@ -240,8 +278,11 @@
       });
     }
 
-    function submitToFormspree(){
+    function submitToFormspree(contact){
       var data = {
+        name: contact.name,
+        phone: contact.phone,
+        business: contact.business,
         business_type: answers.business_type || '',
         current_website: answers.current_website || '',
         timeline: answers.timeline || '',
@@ -250,17 +291,18 @@
         utm_campaign: utm('utm_campaign'),
         utm_content: utm('utm_content'),
         landing_page: '/start.html',
+        _gotcha: document.getElementById('lead-gotcha').value,
         _subject: 'New Qualified Lead - Ad Funnel (start.html)'
       };
       fetch('https://formspree.io/f/xojeqvng', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
-      }).catch(function(){ /* booking still shown; Calendly captures contact info */ });
+      }).catch(function(){ /* booking still shown; Calendly re-captures contact info */ });
     }
 
-    function finishQuiz(){
-      submitToFormspree();
+    function finishQuiz(contact){
+      submitToFormspree(contact);
       if (window.fbq) {
         fbq('track', 'Lead', {
           content_name: 'qualify_form',
@@ -271,6 +313,15 @@
       document.getElementById('quiz').style.display = 'none';
       document.querySelector('.start-hero').style.display = 'none';
       var booking = document.getElementById('booking');
+      var container = booking.querySelector('.calendly-inline-widget');
+      if (window.Calendly && container) {
+        container.innerHTML = '';
+        Calendly.initInlineWidget({
+          url: 'https://calendly.com/corban-leadsprinter/new-meeting?hide_gdpr_banner=1',
+          parentElement: container,
+          prefill: { name: contact.name }
+        });
+      }
       booking.style.display = 'block';
       booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -280,8 +331,24 @@
         var step = Number(btn.closest('.quiz-step').getAttribute('data-step'));
         answers[btn.getAttribute('data-q')] = btn.getAttribute('data-a');
         if (window.fbq) fbq('trackCustom', 'QualifyStep', { step: step, answer: btn.getAttribute('data-a') });
-        if (step < 3) { showStep(step + 1); } else { finishQuiz(); }
+        showStep(step + 1);
       });
+    });
+
+    document.getElementById('contact-submit').addEventListener('click', function(){
+      var contact = {
+        name: document.getElementById('lead-name').value.trim(),
+        phone: document.getElementById('lead-phone').value.trim(),
+        business: document.getElementById('lead-business').value.trim()
+      };
+      var err = document.getElementById('contact-error');
+      if (!contact.name || contact.phone.replace(/\D/g, '').length < 7) {
+        err.classList.add('show');
+        return;
+      }
+      err.classList.remove('show');
+      if (window.fbq) fbq('trackCustom', 'QualifyStep', { step: 4, answer: 'contact_submitted' });
+      finishQuiz(contact);
     });
 
     document.querySelectorAll('.quiz-back').forEach(function(btn){
