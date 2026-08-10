@@ -29,7 +29,7 @@
   fbq('track', 'PageView');
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (a) { fbq('track', 'Lead', {content_name: 'phone_call_tap'}); }
+    if (a) { fbq('trackCustom', 'PhoneTap', {content_name: 'phone_call_tap'}); }
   });
   </script>
   <noscript><img height="1" width="1" style="display:none"
