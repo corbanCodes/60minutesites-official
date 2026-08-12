@@ -174,8 +174,12 @@
     .who { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px;
       background: rgba(255,255,255,.06); border: 1px solid rgba(201,162,75,.3); border-radius: 999px;
       padding: 8px 20px 8px 8px; backdrop-filter: blur(8px); }
-    .who img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center 30%;
-      border: 2px solid var(--gold); }
+    .who .tt-mini { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold);
+      background: var(--navy-2); color: var(--gold-light); display: grid; place-items: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 17px; }
+    .ring .tt-big { width: 100%; height: 100%; border-radius: 50%; border: 4px solid var(--navy);
+      background: linear-gradient(150deg, var(--navy-2), var(--navy)); color: var(--gold-light);
+      display: grid; place-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 64px; }
     .who b { font-size: 14px; color: #fff; display: block; line-height: 1.25; }
     .who span { font-size: 12px; color: var(--mist); }
 
@@ -194,7 +198,7 @@
 
 <nav>
   <a class="brand" href="#top">Living <span>Younger</span> Financial</a>
-  <a class="call" href="tel:5635295461">Call Todd</a>
+  <a class="call" href="tel:5635295461">☎ (563) 529-5461</a>
 </nav>
 
 <header class="hero" id="top">
@@ -203,11 +207,11 @@
     <h1>Make your money work <em>twice.</em></h1>
     <p class="lede">A properly structured life insurance policy doesn't just protect your family — it becomes collateral you can put to work. That's the Flexmethod®: one dollar, two jobs, compounding on both sides.</p>
     <div class="hero-cta">
-      <a class="btn gold" href="tel:5635295461">Talk with Todd</a>
+      <a class="btn gold" href="tel:5635295461">Call (563) 529-5461</a>
       <a class="btn ghost" href="#book">Book a discovery call</a>
     </div>
     <div class="who">
-      <img src="/assets/todd-trope.jpg" alt="Todd Trope">
+      <div class="tt-mini">TT</div>
       <div><b>Todd Trope</b><span>Living Younger Financial · 30+ years in the field</span></div>
     </div>
     <div class="hero-stats">
@@ -269,7 +273,7 @@
 <section class="dark">
   <div class="wrap about">
     <div class="portrait">
-      <div class="ring"><img src="/assets/todd-trope.jpg" alt="Todd Trope, Living Younger Financial"></div>
+      <div class="ring"><div class="tt-big">TT</div></div>
       <div class="cap"><b>Todd Trope</b><span>Founder · Living Younger Financial</span></div>
     </div>
     <div>
@@ -277,7 +281,7 @@
       <h2>Three decades building the golden goose.</h2>
       <p class="sub" style="margin-bottom:14px">Todd has spent 30+ years working alongside attorneys, senior advisors, and trust specialists — assembling the strategies most people never hear about, and the professional network to execute them properly.</p>
       <p class="sub">Living Younger Financial exists to put that experience to work for regular people: one conversation at a time, no pressure, no jargon.</p>
-      <a class="btn gold" href="tel:5635295461" style="margin-top:26px">Start the conversation</a>
+      <a class="btn gold" href="tel:5635295461" style="margin-top:26px">Call (563) 529-5461</a>
     </div>
   </div>
 </section>
@@ -358,7 +362,7 @@
   <div class="wrap">
     <h2>Curious what your money could do with two jobs?</h2>
     <p>Send your details and Todd will reach out personally — or skip the form and just call.</p>
-    <a class="btn ghost" href="tel:5635295461" style="margin:0 0 8px">Call Todd Trope</a>
+    <a class="btn ghost" href="tel:5635295461" style="margin:0 0 8px">Call (563) 529-5461</a>
     <form class="lyf-form" id="lyf-form">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <label>Your name *<input type="text" name="name" required></label>
