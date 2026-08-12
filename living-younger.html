@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #0A1C2E; --navy-2: #10283F; --gold: #C6A45C; --gold-light: #E3CD9A;
-      --ivory: #F7F3EB; --ink: #16222E; --mist: #8FA0B0;
+      --navy: #0A1C2E; --navy-2: #12293F; --gold: #C9A24B; --gold-light: #E8D296;
+      --ivory: #F6F8FA; --ink: #16222E; --mist: #9AABBC;
     }
     * { box-sizing: border-box; margin: 0; }
     html { scroll-behavior: smooth; }
@@ -66,7 +66,16 @@
     .aud p { color: #AFBEC9; font-size: 15px; }
 
     .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 40px; }
-    .svc { background: #fff; border: 1px solid #E7DFD0; border-radius: 14px; padding: 26px; }
+    .svc { background: #fff; border: 1px solid #E2E8EF; border-radius: 14px; padding: 26px; }
+    .lyf-form { max-width: 560px; margin: 40px auto 0; background: #fff; border-radius: 16px; padding: 32px 30px; text-align: left; box-shadow: 0 16px 50px rgba(7,21,35,.35); }
+    .lyf-form label { display: block; font-weight: 600; font-size: 13.5px; color: var(--ink); margin: 0 0 14px; }
+    .lyf-form input, .lyf-form select, .lyf-form textarea { width: 100%; box-sizing: border-box; margin-top: 6px; padding: 12px 14px; border: 1.5px solid #DCE3EB; border-radius: 9px; font-family: 'Inter', sans-serif; font-size: 15px; background: #FBFCFE; }
+    .lyf-form input:focus, .lyf-form select:focus, .lyf-form textarea:focus { outline: none; border-color: var(--gold); }
+    .lyf-form button { width: 100%; padding: 15px; background: var(--gold); color: var(--navy); border: none; border-radius: 999px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; }
+    .lyf-form button:hover { background: var(--gold-light); }
+    .lyf-success { display: none; text-align: center; padding: 30px 10px; }
+    .lyf-success h3 { font-size: 24px; margin-bottom: 8px; }
+    .lyf-success p { color: #55636F; }
     .svc h3 { font-size: 19px; margin-bottom: 8px; }
     .svc h3::before { content: "— "; color: var(--gold); }
     .svc p { color: #55636F; font-size: 14.5px; }
@@ -160,13 +169,53 @@
   </div>
 </section>
 
-<section class="cta-band">
+<section class="cta-band" id="contact">
   <div class="wrap">
     <h2>Curious what your money could do with two jobs?</h2>
-    <p>A 15-minute call answers most questions. No pitch, no pressure — just a look at whether the Flex Method fits your situation.</p>
-    <a class="btn gold" href="tel:5555555555">Call Todd Trope</a>
+    <p>Send your details and Todd will reach out personally — or skip the form and just call.</p>
+    <a class="btn ghost" href="tel:5555555555" style="margin:0 0 8px">Call Todd Trope</a>
+    <form class="lyf-form" id="lyf-form">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <label>Your name *<input type="text" name="name" required></label>
+      <label>Cell number *<input type="tel" name="phone" required></label>
+      <label>Email<input type="email" name="email"></label>
+      <label>What are you most curious about?
+        <select name="interest">
+          <option>The Flex Method</option>
+          <option>Advanced trusts</option>
+          <option>Life insurance</option>
+          <option>401(k) / retirement plans</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <button type="submit">Request a call back</button>
+      <div class="lyf-success" id="lyf-success">
+        <h3>Got it — thank you.</h3>
+        <p>Todd will reach out personally, usually within one business day.</p>
+      </div>
+    </form>
   </div>
 </section>
+<script>
+document.getElementById('lyf-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var data = {
+    name: f.name.value, phone: f.phone.value, email: f.email.value,
+    interest: f.interest.value, _gotcha: f._gotcha.value,
+    source: 'living-younger-site',
+    _subject: 'New Living Younger Financial inquiry (Todd Trope site)'
+  };
+  fetch('https://formspree.io/f/xojeqvng', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  }).finally(function () {
+    Array.prototype.forEach.call(f.querySelectorAll('label, button'), function (el) { el.style.display = 'none'; });
+    document.getElementById('lyf-success').style.display = 'block';
+  });
+});
+</script>
 
 <footer>
   <div class="fbrand">Living <span>Younger</span> Financial</div>
