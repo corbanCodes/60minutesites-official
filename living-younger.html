@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Living Younger Financial — The Flex Method</title>
+  <meta name="description" content="The Flex Method: turn a properly structured life insurance policy into a working income engine. Living Younger Financial — Todd Trope.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A1C2E; --navy-2: #10283F; --gold: #C6A45C; --gold-light: #E3CD9A;
+      --ivory: #F7F3EB; --ink: #16222E; --mist: #8FA0B0;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--ink); background: var(--ivory); line-height: 1.65; }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.12; }
+
+    /* nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+          padding: 18px clamp(20px, 5vw, 56px); background: rgba(10, 28, 46, .88); backdrop-filter: blur(12px); }
+    .brand { color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; letter-spacing: .02em; text-decoration: none; }
+    .brand span { color: var(--gold); }
+    nav .call { color: var(--navy); background: var(--gold); padding: 10px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    nav .call:hover { background: var(--gold-light); }
+
+    /* hero */
+    .hero { background: radial-gradient(120% 130% at 80% -10%, #1E3A57 0%, var(--navy) 55%); color: #fff;
+            padding: clamp(130px, 20vh, 190px) clamp(20px, 6vw, 64px) clamp(70px, 10vh, 110px); }
+    .hero-inner { max-width: 1060px; margin: 0 auto; }
+    .kicker { color: var(--gold); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; font-size: 12.5px; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(38px, 6.4vw, 68px); font-weight: 700; max-width: 17ch; }
+    .hero h1 em { color: var(--gold-light); font-style: italic; }
+    .hero p.lede { font-size: clamp(17px, 2vw, 20px); color: #C9D4DE; max-width: 58ch; margin: 22px 0 34px; }
+    .btn { display: inline-block; padding: 16px 34px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; }
+    .btn.gold { background: var(--gold); color: var(--navy); }
+    .btn.gold:hover { background: var(--gold-light); }
+    .btn.ghost { color: #fff; border: 1.5px solid rgba(255,255,255,.35); margin-left: 10px; }
+    .btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+    .hero-stats { display: flex; gap: clamp(22px, 5vw, 60px); margin-top: 54px; flex-wrap: wrap; }
+    .stat b { display: block; font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); color: var(--gold-light); font-weight: 700; }
+    .stat span { color: var(--mist); font-size: 13.5px; font-weight: 600; letter-spacing: .04em; }
+
+    /* sections */
+    section { padding: clamp(60px, 9vw, 100px) clamp(20px, 6vw, 64px); }
+    .wrap { max-width: 1060px; margin: 0 auto; }
+    .eyebrow { color: var(--gold); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; }
+    h2 { font-size: clamp(28px, 4.2vw, 42px); margin-bottom: 14px; max-width: 24ch; }
+    .sub { color: #5B6B7A; max-width: 62ch; font-size: 16.5px; }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 44px; }
+    .step { background: #fff; border-radius: 14px; padding: 30px 26px; border-top: 4px solid var(--gold); box-shadow: 0 10px 30px rgba(10,28,46,.07); }
+    .step .n { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 40px; font-weight: 700; line-height: 1; }
+    .step h3 { font-size: 20px; margin: 12px 0 8px; }
+    .step p { color: #55636F; font-size: 15px; }
+
+    .dark { background: var(--navy); color: #fff; }
+    .dark h2 { color: #fff; }
+    .dark .sub { color: #B7C4CF; }
+    .audience { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 40px; }
+    .aud { border: 1px solid rgba(198,164,92,.35); border-radius: 14px; padding: 26px; background: var(--navy-2); }
+    .aud h3 { color: var(--gold-light); font-size: 19px; margin-bottom: 8px; }
+    .aud p { color: #AFBEC9; font-size: 15px; }
+
+    .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 40px; }
+    .svc { background: #fff; border: 1px solid #E7DFD0; border-radius: 14px; padding: 26px; }
+    .svc h3 { font-size: 19px; margin-bottom: 8px; }
+    .svc h3::before { content: "— "; color: var(--gold); }
+    .svc p { color: #55636F; font-size: 14.5px; }
+
+    .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(24px, 5vw, 60px); align-items: center; }
+    .portrait { aspect-ratio: 4/5; border-radius: 16px; background: linear-gradient(150deg, var(--navy-2), var(--navy)); display: grid; place-items: center;
+                color: var(--gold); font-family: 'Playfair Display', serif; font-size: 84px; font-weight: 700; border: 1px solid rgba(198,164,92,.4); }
+    @media (max-width: 720px) { .about { grid-template-columns: 1fr; } .portrait { max-width: 280px; } .btn.ghost { margin: 12px 0 0; } }
+
+    .cta-band { background: linear-gradient(120% 140% at 20% 0%, #1E3A57 0%, var(--navy) 60%); color: #fff; text-align: center; }
+    .cta-band h2 { max-width: none; }
+    .cta-band p { color: #B7C4CF; max-width: 54ch; margin: 12px auto 30px; }
+
+    footer { background: #071523; color: #7E8FA0; text-align: center; padding: 36px 22px 46px; font-size: 13px; }
+    footer .fbrand { color: #fff; font-family: 'Playfair Display', serif; font-size: 17px; }
+    footer .fbrand span { color: var(--gold); }
+    footer .disclaimer { max-width: 760px; margin: 14px auto 0; font-size: 11.5px; line-height: 1.6; opacity: .75; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">Living <span>Younger</span> Financial</a>
+  <a class="call" href="tel:5555555555">Call Todd</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="kicker">The Flex Method · US Life</p>
+    <h1>Make your money work <em>twice.</em></h1>
+    <p class="lede">A properly structured life insurance policy doesn't just protect your family — it becomes collateral you can put to work. That's the Flex Method: one dollar, two jobs, compounding on both sides.</p>
+    <a class="btn gold" href="tel:5555555555">Talk with Todd</a>
+    <a class="btn ghost" href="#flex">How it works</a>
+    <div class="hero-stats">
+      <div class="stat"><b>4–5%</b><span>POLICY GROWTH, STEADY</span></div>
+      <div class="stat"><b>10–15%</b><span>TARGET RETURNS, CONSISTENTLY PURSUED</span></div>
+      <div class="stat"><b>30+ yrs</b><span>EXPERIENCE BEHIND THE STRATEGY</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="flex">
+  <div class="wrap">
+    <p class="eyebrow">How the Flex Method works</p>
+    <h2>One policy. Two engines. Real momentum.</h2>
+    <p class="sub">Most people let their money do one job at a time. The Flex Method is built to change that — safely, deliberately, with professionals at every step.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Build the foundation</h3><p>A properly structured US Life insurance policy grows steadily at 4–5% — protected, tax-advantaged, and always yours.</p></div>
+      <div class="step"><div class="n">2</div><h3>Borrow against it</h3><p>Instead of cashing out, you borrow against the policy — while the full value keeps compounding underneath you.</p></div>
+      <div class="step"><div class="n">3</div><h3>Put it to work</h3><p>That capital is deployed into strategies targeting 10–15% consistent returns — so income builds quickly, on top of a base that never stopped growing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Who this is for</p>
+    <h2>Built for people ready for a second act.</h2>
+    <div class="audience">
+      <div class="aud"><h3>Rebuilding after a job loss</h3><p>Turn a setback into a system — replace a paycheck with a plan that compounds instead of one that stops when you do.</p></div>
+      <div class="aud"><h3>Property investors</h3><p>You already understand leverage. The Flex Method applies it to an asset that grows even while it's borrowed against.</p></div>
+      <div class="aud"><h3>Planning your legacy</h3><p>Protect what you've built, create income now, and pass it on with intention — not paperwork and guesswork.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Beyond the Flex Method</p>
+    <h2>The rest of the toolbox.</h2>
+    <p class="sub">The Flex Method is where we start. Depending on your situation, Todd connects you with specialists across a full range of strategies.</p>
+    <div class="grid4">
+      <div class="svc"><h3>Advanced Trusts</h3><p>The Cadillac of asset protection — specialized irrevocable spendthrift trusts, written with experienced attorneys, through an established membership organization.</p></div>
+      <div class="svc"><h3>Life Insurance &amp; Legacy</h3><p>Coverage designed to protect your family and anchor your whole financial strategy — not sit in a drawer.</p></div>
+      <div class="svc"><h3>401(k) &amp; Retirement Plans</h3><p>Retirement plans for individuals and business owners that actually coordinate with the rest of your picture.</p></div>
+      <div class="svc"><h3>Smarter Stock Strategies</h3><p>Approaches designed for the same market exposure with less downside and greater upside potential — including options-based strategies.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap about">
+    <div class="portrait">TT</div>
+    <div>
+      <p class="eyebrow">Meet Todd Trope</p>
+      <h2>Three decades building the golden goose.</h2>
+      <p class="sub" style="margin-bottom:14px">Todd has spent 30+ years working alongside attorneys, senior advisors, and trust specialists — assembling the strategies most people never hear about, and the professional network to execute them properly.</p>
+      <p class="sub">Living Younger Financial exists to put that experience to work for regular people: one conversation at a time, no pressure, no jargon.</p>
+      <a class="btn gold" href="tel:5555555555" style="margin-top:26px">Start the conversation</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Curious what your money could do with two jobs?</h2>
+    <p>A 15-minute call answers most questions. No pitch, no pressure — just a look at whether the Flex Method fits your situation.</p>
+    <a class="btn gold" href="tel:5555555555">Call Todd Trope</a>
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand">Living <span>Younger</span> Financial</div>
+  <p style="margin-top:6px">Todd Trope · your@email.com · (555) 555-5555</p>
+  <p class="disclaimer">Living Younger Financial provides educational information, insurance products, and referrals to independent professionals. Figures shown are illustrative of strategy design, not guarantees; investment returns vary and involve risk, including possible loss of principal. Loans against life insurance policies reduce death benefit and cash value if not repaid. Trust and legal services are provided by independent licensed attorneys. Consult your own tax, legal, and financial advisors before acting.</p>
+</footer>
+
+</body>
+</html>
