@@ -256,6 +256,17 @@
   </div>
 </section>
 
+<section style="padding:0; position:relative; min-height:420px; display:grid; place-items:center; text-align:center;
+  background: linear-gradient(rgba(10,28,46,.78), rgba(10,28,46,.86)), url('assets/office-building.jpg') center/cover;">
+  <div class="wrap" style="padding: 80px 24px;">
+    <p style="font-family:'Playfair Display', serif; font-size: clamp(22px, 3.4vw, 34px); color: #fff; max-width: 26ch; margin: 0 auto; line-height: 1.35;">
+      “I've found my forever strategy. I will use the Flexmethod® Strategy for my clients until the day I retire!”
+    </p>
+    <p style="color: var(--gold-light); font-weight: 700; margin-top: 18px; font-size: 14px; letter-spacing: .06em;">— RICHARD C., FINANCIAL ADVISOR &amp; AGENT</p>
+    <p style="color: var(--mist); font-size: 12px; margin-top: 6px;">From the official Flexmethod® site</p>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <p class="eyebrow">Beyond the Flexmethod®</p>
@@ -292,9 +303,9 @@
     <h2>Seeing is believing.</h2>
     <div class="carousel" id="lyf-carousel">
       <div class="car-track">
-        <div class="car-slide"><div class="car-ph">Photo 1<br><span>drop any image here</span></div></div>
-        <div class="car-slide"><div class="car-ph alt">Photo 2<br><span>postcards, events, materials</span></div></div>
-        <div class="car-slide"><div class="car-ph">Photo 3<br><span>Todd &amp; partners</span></div></div>
+        <div class="car-slide"><img class="car-img" src="assets/planning-desk.jpg" alt="Working through a financial plan together" loading="lazy"></div>
+        <div class="car-slide"><img class="car-img" src="assets/handshake.jpg" alt="A partnership built on trust" loading="lazy"></div>
+        <div class="car-slide"><img class="car-img" src="assets/office-meeting.jpg" alt="A modern, professional practice" loading="lazy"></div>
       </div>
       <button class="car-btn prev" aria-label="Previous">‹</button>
       <button class="car-btn next" aria-label="Next">›</button>
@@ -325,6 +336,8 @@
     background: linear-gradient(150deg, var(--navy-2), var(--navy)); border: 1px solid rgba(201,162,75,.35); }
   .car-ph.alt { background: linear-gradient(150deg, #1E3A57, var(--navy-2)); }
   .car-ph span { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--mist); font-weight: 600; }
+  .car-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 18px; display: block;
+    border: 1px solid rgba(10,28,46,.08); box-shadow: 0 14px 36px rgba(10,28,46,.12); }
   .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%;
     border: none; background: rgba(10,28,46,.85); color: var(--gold-light); font-size: 26px; cursor: pointer;
     display: grid; place-items: center; backdrop-filter: blur(6px); }
