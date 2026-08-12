@@ -232,6 +232,78 @@
   </div>
 </section>
 
+<section id="gallery" style="padding-bottom: 30px;">
+  <div class="wrap">
+    <p class="eyebrow">A closer look</p>
+    <h2>Seeing is believing.</h2>
+    <div class="carousel" id="lyf-carousel">
+      <div class="car-track">
+        <div class="car-slide"><div class="car-ph">Photo 1<br><span>drop any image here</span></div></div>
+        <div class="car-slide"><div class="car-ph alt">Photo 2<br><span>postcards, events, materials</span></div></div>
+        <div class="car-slide"><div class="car-ph">Photo 3<br><span>Todd &amp; partners</span></div></div>
+      </div>
+      <button class="car-btn prev" aria-label="Previous">‹</button>
+      <button class="car-btn next" aria-label="Next">›</button>
+      <div class="car-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" style="padding-top: 30px;">
+  <div class="wrap">
+    <p class="eyebrow">Book directly</p>
+    <h2>Grab time on Todd's calendar.</h2>
+    <p class="sub" style="margin-bottom: 26px">Pick any open slot — the call is free, and you'll get a confirmation instantly.</p>
+    <iframe src="https://calendly.com/corban-leadsprinter/living-younger?hide_gdpr_banner=1"
+            title="Book a call" loading="lazy"
+            style="width:100%; height:740px; border:0; border-radius:16px; background:#fff; box-shadow: 0 16px 50px rgba(10,28,46,.12);"></iframe>
+  </div>
+</section>
+
+<style>
+  .carousel { position: relative; margin-top: 36px; }
+  .car-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 18px; }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-slide { flex: 0 0 100%; scroll-snap-align: center; }
+  @media (min-width: 760px) { .car-slide { flex: 0 0 calc(50% - 8px); } }
+  .car-ph { aspect-ratio: 16/10; border-radius: 18px; display: grid; place-items: center; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold-light);
+    background: linear-gradient(150deg, var(--navy-2), var(--navy)); border: 1px solid rgba(201,162,75,.35); }
+  .car-ph.alt { background: linear-gradient(150deg, #1E3A57, var(--navy-2)); }
+  .car-ph span { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--mist); font-weight: 600; }
+  .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%;
+    border: none; background: rgba(10,28,46,.85); color: var(--gold-light); font-size: 26px; cursor: pointer;
+    display: grid; place-items: center; backdrop-filter: blur(6px); }
+  .car-btn:hover { background: var(--navy); transform: translateY(-50%) scale(1.06); }
+  .car-btn.prev { left: 12px; } .car-btn.next { right: 12px; }
+  .car-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+  .car-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; background: #C9D2DC; cursor: pointer; padding: 0; }
+  .car-dots button.on { background: var(--gold); width: 26px; border-radius: 999px; }
+</style>
+<script>
+(function () {
+  var track = document.querySelector('#lyf-carousel .car-track');
+  var slides = track.children;
+  var dots = document.querySelector('#lyf-carousel .car-dots');
+  for (var i = 0; i < slides.length; i++) {
+    var d = document.createElement('button');
+    d.dataset.i = i;
+    dots.appendChild(d);
+  }
+  function go(i) { slides[Math.max(0, Math.min(i, slides.length - 1))].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
+  function cur() { return Math.round(track.scrollLeft / (slides[0].offsetWidth + 16)); }
+  document.querySelector('#lyf-carousel .prev').onclick = function () { go(cur() - 1); };
+  document.querySelector('#lyf-carousel .next').onclick = function () { go(cur() + 1); };
+  dots.addEventListener('click', function (e) { if (e.target.dataset.i) go(+e.target.dataset.i); });
+  function paint() {
+    var c = cur();
+    Array.prototype.forEach.call(dots.children, function (d, i) { d.classList.toggle('on', i === c); });
+  }
+  track.addEventListener('scroll', function () { requestAnimationFrame(paint); });
+  paint();
+})();
+</script>
+
 <section class="cta-band" id="contact">
   <div class="wrap">
     <h2>Curious what your money could do with two jobs?</h2>
